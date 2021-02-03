@@ -110,6 +110,8 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force # https://github.com/Homebrew/brew/issues/1151
 brew bundle --file=- <<EOF
+tap "beeftornado/rmtree"
+tap "homebrew/bundle"
 tap "thoughtbot/formulae"
 tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
@@ -120,11 +122,9 @@ brew "universal-ctags", args: ["HEAD"]
 brew "git"
 brew "openssl"
 brew "rcm"
-brew "reattach-to-user-namespace"
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
-brew "watchman"
 brew "zsh"
 
 # Heroku
@@ -146,6 +146,29 @@ cask "gpg-suite"
 # Databases
 brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
+
+# Browsers
+cask "brave-browser"
+cask "firefox"
+cask "chromedriver"
+
+# Screen saver
+cask "fliqlo"
+
+# Utilities
+cask "appcleaner"
+cask "google-drive-file-stream"
+cask "mqttfx"
+cask "postman"
+cask "tyke"
+
+# Mac App Store apps
+mas "Contrast", id: 1254981365
+mas "iA Writer", id: 775737590
+mas "MindNode", id: 1289197285
+mas "OmniFocus", id: 1346203938
+mas "OmniGraffle", id: 1142578753
+mas "Xcode", id: 497799835
 EOF
 
 fancy_echo "Update heroku binary ..."
